@@ -412,7 +412,7 @@ gebeurt omdat hierover ook uw gegevens worden verstuurd.</p>
                           AND scans_ssllabs.scanmoment <= now() 
                           AND url.isDead = 0
                           AND scans_ssllabs.isDead = 0
-                        group by (scans_ssllabs.url) 
+                        group by organization, scans_ssllabs.url 
                         order by organization ASC, rating DESC";
                 $results = DB::query($sql);
                     foreach ($results as $row) {
